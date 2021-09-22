@@ -16,7 +16,7 @@ public class AccountService {
     private final UserStoreRepository userStoreRepository;
     private final PasswordEncoder encoder;
 
-    AccountService(UserStoreRepository userStoreRepository, PasswordEncoder encoder) {
+    public AccountService(UserStoreRepository userStoreRepository, PasswordEncoder encoder) {
         this.userStoreRepository = userStoreRepository;
         this.encoder = encoder;
     }

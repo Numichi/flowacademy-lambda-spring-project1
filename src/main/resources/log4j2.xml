@@ -11,7 +11,7 @@
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
             <Policies>
-<!--                <OnStartupTriggeringPolicy/>-->
+                <OnStartupTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
                 <TimeBasedTriggeringPolicy/>
             </Policies>

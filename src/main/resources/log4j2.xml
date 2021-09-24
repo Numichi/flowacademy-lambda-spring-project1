@@ -16,13 +16,29 @@
                 <TimeBasedTriggeringPolicy/>
             </Policies>
         </RollingFile>
+        <RollingFile name="SystemLog"
+                     fileName="./logs/system.log"
+                     filePattern="./logs/$${date:yyyy-MM}/system-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
     </Appenders>
     <Loggers>
         <Logger name="AUDIT">
             <appenderref ref="UserLogin" level="trace"/>
         </Logger>
-        <Root level="trace" additivity="false">
+        <Logger name="SYSTEM">
+            <AppenderRef ref="SystemLog" level="trace"/>
             <AppenderRef ref="Console"  level="trace"/>
+        </Logger>
+        <Root level="info" additivity="false">
+            <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
 </Configuration>

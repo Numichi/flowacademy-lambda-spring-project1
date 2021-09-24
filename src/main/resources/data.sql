@@ -1,0 +1,1 @@
+insert into users (username, passwd) VALUES ('user100', 'plantext_password');

@@ -18,6 +18,7 @@ public class RegistrationController {
     }
 
     @PostMapping
+    @PreAuthorize("isAnonymous()")
     public boolean registration(@RequestBody @Valid UserRequest user) {
         accountService.saveUser(user);
         return true;

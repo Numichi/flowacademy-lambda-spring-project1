@@ -22,10 +22,6 @@ public class AccountService {
     }
 
     public void saveUser(UserRequest user) {
-        if (user.getPasswd().startsWith(".")) {
-            throw new WrongPasswordException();
-        }
-
         UserModel model = new UserModel();
 
         model.setUsername(user.getUsername());

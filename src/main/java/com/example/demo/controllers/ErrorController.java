@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.exceptions.WrongPasswordException;
 import com.example.demo.model.ErrorModel;
 import com.example.demo.services.AccountService;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,15 @@ public class ErrorController {
         var error = new ErrorModel();
         error.setStatus(HttpStatus.BAD_REQUEST.value());
         error.setMessage("Not valid password!!!!!!!!!!!!!!!!");
+        return error;
+    }
+
+    @ExceptionHandler({ExpiredJwtException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorModel expiredJwtException() {
+        var error = new ErrorModel();
+        error.setStatus(HttpStatus.BAD_REQUEST.value());
+        error.setMessage("Lejártál.. :)");
         return error;
     }
 }

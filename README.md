@@ -9,7 +9,7 @@ E célból van szükség az integrációs tesztekre. Azaz több komponens vagy c
 
 Kód szinten
 -----------
-[Spring Tutorial](https://spring.io/guides/gs/testing-web/) | 
+[Spring Tutorial](https://spring.io/guides/gs/testing-web/)
 
 Class annotációk:
 - **@SpringBootTest**: | [API Doc](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html)
@@ -87,3 +87,6 @@ Magyarázó kommentek: `src\main\java\com\example\demo\database\User.java` és `
 Érdekesség:
 ----------
 Van olyan, hogy adatbázis migráció. [Database Migration with Spring Boot](https://thorben-janssen.com/database-migration-with-spring-boot/)
+
+
+eyJhbG1hZmEiOiJrb3J0ZWZhIiwic3ViIjoiZDNkN2ZiNTItNGJiYy00YmFhLWJmZDctNjhhZmY5N2EwOWJmIiwiaWF0IjoxNjMyODE3NzQ4LCJleHAiOjE2MzI4MTc3NTJ9

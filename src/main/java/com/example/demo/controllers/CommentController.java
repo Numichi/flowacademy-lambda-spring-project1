@@ -4,6 +4,8 @@ import com.example.demo.database.Comment;
 import com.example.demo.database.CommentRepository;
 import com.example.demo.database.UserRepository;
 import com.example.demo.model.CommentRequest;
+import com.example.demo.model.CommentResponse;
+import com.example.demo.services.CommentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +17,16 @@ public class CommentController {
 
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
+    private final CommentService commentService;
 
-    CommentController(CommentRepository commentRepository, UserRepository userRepository) {
+    CommentController(
+            CommentRepository commentRepository,
+            UserRepository userRepository,
+            CommentService commentService
+    ) {
         this.commentRepository = commentRepository;
         this.userRepository = userRepository;
+        this.commentService = commentService;
     }
 
     @PostMapping
@@ -35,8 +43,7 @@ public class CommentController {
     }
 
     @GetMapping("{id}")
-    public List<Comment> addComment(@PathVariable int id) {
-        var user = userRepository.findById(id).orElseThrow();
-        return user.getCommentList();
+    public List<CommentResponse> getComment(@PathVariable int id) {
+        return commentService.getComments(id);
     }
 }

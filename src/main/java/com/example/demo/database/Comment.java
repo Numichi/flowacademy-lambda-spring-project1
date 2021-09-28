@@ -38,7 +38,7 @@ public class Comment {
      */
     @ManyToOne
     @JoinColumn
-    @JsonIgnore
+//    @JsonIgnore
     private User user;
 
     /**
